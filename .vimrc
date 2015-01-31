@@ -146,6 +146,9 @@ set laststatus=2
 set tabstop=4
 set shiftwidth=4
 set nobackup
+set noswapfile
+"for cron
+set backupskip=/tmp/*,/private/tmp/*
 set smarttab
 set expandtab
 
