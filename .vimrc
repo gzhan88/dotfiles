@@ -30,6 +30,8 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neosnippet'
 " NeoBundle 'junegunn/seoul256.vim'
 " NeoBundle 'w0ng/vim-hybrid'
+" NeoBundle 'lervag/vim-latex'
+" NeoBundle 'vim-latex/vim-latex'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
@@ -39,6 +41,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'yuratomo/w3m.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call neobundle#end()
@@ -123,8 +126,39 @@ let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
 
 "vim-quickrun
-let g:quickrun_config={'_': {'split': 'vertical'}}
-let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
+" let g:quickrun_config={'_': {'split': 'vertical'}}
+" let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
+
+let g:quickrun_config = {}
+let g:quickrun_config['_'] = {
+\     "hook/neco/enable" : 1,
+\     "hook/neco/wait" : 20,
+\     "outputter/buffer/split" : ":botright 5sp",
+\     "runner": "vimproc",
+\     "runner/vimproc/updatetime" : 40,
+\     "hook/close_quickfix/enable_success" : 1,
+\     "hook/close_buffer/enable_failure" : 1,
+\     "outputter" : "multi:buffer:quickfix",
+\     'hook/time/enable' : 1
+\ }
+
+let g:quickrun_config['opencv'] = {
+\   'command' : 'g++',
+\   'cmdopt': '`pkg-config opencv --libs --cflags`',
+\   'exec': ['%c %s %o']
+\ }
+
+let g:quickrun_config['tex'] = {
+\   'command' : 'latexmk',
+\   'cmdopt': '-pdfdvi -pv',
+\   'exec': ['%c %o %s']
+\ }
+
+let g:quickrun_config['python'] = {
+\   "command" : "python3",
+\   "exec" : '%c %s'
+\   }
+
 
 "vim-markdown 
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -186,4 +220,4 @@ function! s:GetHighlight(hi)
 endfunction
 
 "markdown
-vnoremap <leader>mdu ygvs[] (<c-r>")<esc>?[]<cr>a
+vnoremap <leader>mdu ygvs[](<c-r>")<esc>?[]<cr>a

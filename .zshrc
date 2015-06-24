@@ -4,6 +4,8 @@ export LANG=ja_JP.UTF-8
 ## PATH
 # homebrew
 export PATH=/usr/local/bin:$PATH
+# homebrew cask
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # texlive
 export PATH=/usr/local/texlive/2014/bin/x86_64-darwin:$PATH
 
