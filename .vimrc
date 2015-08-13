@@ -113,7 +113,7 @@ let g:neosnippet#snippets_directory='~/.vim/mysnippet'
 " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup=1
 " ガイドをスタートするインデントの量
-let g:indent_guides_start_level=4
+let g:indent_guides_start_level=2
 " 自動カラーを無効にする
 let g:indent_guides_auto_colors=0
 " 奇数インデントのカラー
@@ -164,7 +164,7 @@ let g:quickrun_config['python'] = {
 au BufRead,BufNewFile *.md set filetype=markdown
 
 "previm
-" let g:previm_open_cmd='open -a Firefox'
+let g:previm_open_cmd='open -a Firefox'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "my setting
