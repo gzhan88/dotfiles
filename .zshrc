@@ -66,6 +66,10 @@ esac
 
 ## cron
 #alias crontab -e="export EDITOR=/usr/local/bin/vim; crontab -e"
+
+## g++
+alias g++="g++ -std=c++11"
+
 ##vi
 alias vi="vim -u NONE --noplugin"
 
