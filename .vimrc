@@ -57,6 +57,8 @@ if !has('vim_starting')
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Scratch window 非表示
+set completeopt=menuone
 "プラグインの設定
 "vimdoc-ja
 set helplang=ja,en
@@ -164,7 +166,7 @@ let g:quickrun_config['python'] = {
 au BufRead,BufNewFile *.md set filetype=markdown
 
 "previm
-let g:previm_open_cmd='open -a Firefox'
+let g:previm_open_cmd='open -a "Google Chrome"'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "my setting
@@ -181,6 +183,7 @@ set tabstop=4
 set shiftwidth=4
 set nobackup
 set noswapfile
+set backspace=indent,eol,start
 "for cron
 set backupskip=/tmp/*,/private/tmp/*
 set smarttab

@@ -1,6 +1,9 @@
 ## LANG
 export LANG=ja_JP.UTF-8
 
+## ls colors
+export LSCOLORS=gxfxcxdxbxegedabagacad
+
 ## PATH
 # homebrew
 export PATH=/usr/local/bin:$PATH
@@ -59,7 +62,18 @@ linux*)
     ;;
 esac
 
-# Opencv
+## Pyenv
+# Opencvble shims and autocompletion add to your profile:
+
+PYENV_ROOT="${HOME}/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
+    export PATH=${PYENV_ROOT}/bin:$PATH
+    eval "$(pyenv init -)"
+fi
+
+# To use Homebrew's directories rather than ~/.pyenv add to your profile:
+#export PYENV_ROOT=/usr/local/opt/pyenv
+
 # export PKG_CONFIG_PATH=$PKG_COFIG_PATH:$HOME/opencv/lib/pkgconfig
 # exporrt LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/opencv/lib
 #

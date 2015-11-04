@@ -1,15 +1,17 @@
 snippet     description
 abbr        description "...."
   /*================================================================================
-  | ${1}
+  | ${1:Projectname}
   |---------------------------------------------------------------------------------
-  | Description:
-  |     - ${2}
+  | Block name  : ${2}
+  | Version     : ${3}
+  | Description :
+  |     - ${4}
   |
   |---------------------------------------------------------------------------------
-  | Created by ${3} : ${4}
+  | Created by ${5} : ${6}
   \===============================================================================*/
-  ${5}
+  ${7}
 
 snippet     com_0
 abbr        comment block "==="
@@ -20,12 +22,12 @@ abbr        comment block "==="
 
 snippet     com_1
 abbr        comment "==="
-  //============================ ${1} ============================
+  //====================== ${1} ======================
   ${2}
 
 snippet     com_2
 abbr        comment "---"
-  //---------------------- ${1:comment} ----------------------
+  //----------------- ${1:comment} -----------------
   ${2}
 
 snippet     mod
@@ -48,7 +50,7 @@ abbr        `timescale ..s/..s
  
 snippet     inp
 abbr        inp
-  input ${1:input_name};${2}
+  input       ${1:input_name};${2}
  
 snippet     inpa
 abbr        input [];
@@ -56,7 +58,7 @@ abbr        input [];
  
 snippet     out
 abbr        output
-  output ${1:input_name};${2}
+  output       ${1:input_name};${2}
  
 snippet     outa
 abbr        output [];
@@ -64,24 +66,32 @@ abbr        output [];
  
 snippet     reg
 abbr        reg
-  reg ${1:reg_name};${2}
+  reg        ${1:reg_name};${2}
  
 snippet     rega
 abbr        reg [];
-  reg [${1}:${2:0}] ${3:reg_name};${4}
+  reg [${1}:${2:0}]  ${3:reg_name};${4}
  
 snippet     regm
 abbr        reg [] [];
-  reg [${1}:${2:0}] ${3:reg_name} [${4:0}:${5}];${6}
+  reg [${1}:${2:0}]  ${3:reg_name} [${4:0}:${5}];${6}
  
 snippet     wire
 abbr        wire
-  wire ${1:wire_name};${2}
+  wire       ${1:wire_name};${2}
  
 snippet     wirea
 abbr        wire [];
   wire [${1}:${2:0}] ${3:wire_name};${4}
  
+snippet     pose
+abbr        posedge ...
+  posedge ${1:Signal}
+
+snippet     nege 
+abbr        negedge ...
+  negedge ${1:Signal}
+
 snippet     always
 abbr        always @() begin end
   always @(${1:sensitivity_list}) begin
@@ -130,7 +140,7 @@ abbr        assign
  
 snippet     param
 abbr        parameter name = val;
-  parameter ${1:name} = ${2:val};${3}
+  parameter  ${1:name} = ${2:val};${3}
  
 snippet     for
 abbr        for(...; ...; ...) begin end
