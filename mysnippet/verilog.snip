@@ -32,13 +32,13 @@ abbr        comment "---"
 
 snippet     mod
 abbr        module() endmodule
-  `default_nettype none
+  \`default_nettype none
 
   module ${1:`expand("%:r")`}(${2:portlist});
   ${3:/* code */}
   endmodule
 
-  `default_nettype wire
+  \`default_nettype wire
  
 snippet     inc
 abbr        `include "..."
