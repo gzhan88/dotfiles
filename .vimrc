@@ -32,7 +32,9 @@ NeoBundle 'Shougo/neosnippet'
 " NeoBundle 'w0ng/vim-hybrid'
 " NeoBundle 'lervag/vim-latex'
 " NeoBundle 'vim-latex/vim-latex'
+NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'aklt/plantuml-syntax'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
@@ -83,7 +85,7 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_ignore_case = 1
 let g:neocomplete#enable_smart_case = 1
 if !exists('g:neocomplete#keyword_patterns')
-		let g:neocomplete#keyword_patterns = {}
+    let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns._ = '\h\w*'
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -138,8 +140,10 @@ let g:quickrun_config['_'] = {
 \     "outputter/buffer/split" : ":botright 5sp",
 \     "runner": "vimproc",
 \     "runner/vimproc/updatetime" : 40,
+\     "hook/close_quickfix/enable_hook_loaded" : 1,
 \     "hook/close_quickfix/enable_success" : 1,
 \     "hook/close_buffer/enable_failure" : 1,
+\     "hook/close_buffer/enable_empty_data" : 1,
 \     "outputter" : "multi:buffer:quickfix",
 \     'hook/time/enable' : 1
 \ }
@@ -197,29 +201,29 @@ syntax on
 "INSERTMODE
 let g:hi_insert  = 'highlight StatusLine guifg=darkblue guibg=darkblue gui=none ctermfg=blue ctermbg=darkblue cterm=none'
 if has('syntax')
-		augroup InsertHook
-				autocmd!
-				autocmd InsertEnter * call s:StatusLine('Enter')
-				autocmd InsertLeave * call s:StatusLine('Leave')
-		augroup END
+    augroup InsertHook
+        autocmd!
+        autocmd InsertEnter * call s:StatusLine('Enter')
+        autocmd InsertLeave * call s:StatusLine('Leave')
+    augroup END
 endif
 let s:slhlcmd = ''
 function! s:StatusLine(mode)
-		if a:mode == 'Enter'
-				silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-				silent exec g:hi_insert
-		else
-				highlight clear StatusLine
-				silent exec s:slhlcmd
-		endif
+    if a:mode == 'Enter'
+        silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+        silent exec g:hi_insert
+    else
+        highlight clear StatusLine
+        silent exec s:slhlcmd
+    endif
 endfunction
 function! s:GetHighlight(hi)
-		redir => hl
-		exec 'highlight '.a:hi
-		redir END
-		let hl = substitute(hl, '[\r\n]', '', 'g')
-		let hl = substitute(hl, 'xxx', '', '')
-		return hl
+    redir => hl
+    exec 'highlight '.a:hi
+    redir END
+    let hl = substitute(hl, '[\r\n]', '', 'g')
+    let hl = substitute(hl, 'xxx', '', '')
+    return hl
 endfunction
 
 "markdown
