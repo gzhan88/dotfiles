@@ -47,6 +47,7 @@ set smarttab
 set expandtab
 set clipboard+=autoselect
 set clipboard+=unnamed
+au BufRead,BufNewFile *.md set filetype=markdown
 
 "markdown
 vnoremap <leader>mdu ygvs[](<c-r>")<esc>?[]<cr>a
