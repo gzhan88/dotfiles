@@ -34,7 +34,10 @@ set cursorline
 set wrap
 set wrapscan
 set showmatch
+
 set hlsearch
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
 set laststatus=2
 set tabstop=4
 set shiftwidth=4

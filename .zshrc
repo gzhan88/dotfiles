@@ -11,7 +11,7 @@ fi
 
 ## PATH
 # Anaconda3
-export PATH="/opt/anaconda3/bin:$PATH"
+export PATH="/usr/local/anaconda3/bin:$PATH"
 
 # Cuda
 export PATH=/usr/local/cuda/bin:$PATH
