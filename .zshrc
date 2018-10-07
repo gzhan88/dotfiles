@@ -11,6 +11,8 @@ export PATH=/usr/local/bin:$PATH
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # texlive
 export PATH=/usr/local/texlive/2014/bin/x86_64-darwin:$PATH
+# pyenv
+eval "$(pyenv init -)"
 
 # editor
 export EDITOR=/usr/local/bin/vim
