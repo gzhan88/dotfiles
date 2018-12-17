@@ -4,9 +4,6 @@
 
 module.exports = {
   config: {
-    // for japanese
-    env: {LANG: 'ja_JP.UTF-8'},
-
     // choose either `'stable'` for receiving highly polished,
     // or `'canary'` for less polished but more frequent updates
     updateChannel: 'stable',
@@ -107,7 +104,9 @@ module.exports = {
     shellArgs: ['--login'],
 
     // for environment variables
-    env: {},
+    // for japanese
+    env: {LANG: 'ja_JP.UTF-8'},
+
 
     // set to `false` for no bell
     bell: 'false',
@@ -126,6 +125,24 @@ module.exports = {
     // bellSoundURL: 'http://example.com/bell.mp3',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+    // hyperterm-overlay
+    overlay: {
+        alwaysOnTop: true,
+        animate: true,
+        hasShadow: false,
+        hideDock: false,
+        hideOnBlur: false,
+        hotkeys: ['Option+Space'],
+        position: 'top',
+        primaryDisplay: false,
+        resizable: true,
+        startAlone: false,
+        startup: false,
+        size: 0.4,
+        tray: true,
+        unique: false
+    }
+    
   },
 
   // a list of plugins to fetch and install from npm
@@ -135,10 +152,29 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
+            'hyperterm-overlay',
             'hyper-chesterish',
             'hyperterm-material',
             'hypercwd'
            ],
+
+  // hyperterm-overlay
+  //overlay: {
+  //      alwaysOnTop: true,
+  //      animate: true,
+  //      hasShadow: false,
+  //      hideDock: false,
+  //      hideOnBlur: false,
+  //      hotkeys: ['Option+Space'],
+  //      position: 'top',
+  //      primaryDisplay: false,
+  //      resizable: true,
+  //      startAlone: false,
+  //      startup: false,
+  //      size: 0.4,
+  //      tray: true,
+  //      unique: false
+  // }
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
