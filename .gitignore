@@ -1,0 +1,5 @@
+.vim/rc/.cache
+.vim/rc/repos
+.vim/rc/*.vim
+.vim/rc/*_vim
+.DS_Store

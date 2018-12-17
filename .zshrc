@@ -4,15 +4,16 @@ export LANG=ja_JP.UTF-8
 ## ls colors
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
+# Autostart if not already in tmux.
+if [[ ! -n $TMUX ]]; then
+  tmux new-session
+fi
+
 ## PATH
 # homebrew
 export PATH=/usr/local/bin:$PATH
 # homebrew cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-# texlive
-export PATH=/usr/local/texlive/2014/bin/x86_64-darwin:$PATH
-# pyenv
-eval "$(pyenv init -)"
 
 # editor
 export EDITOR=/usr/local/bin/vim
@@ -64,18 +65,6 @@ linux*)
     ;;
 esac
 
-## Pyenv
-# Opencvble shims and autocompletion add to your profile:
-
-PYENV_ROOT="${HOME}/.pyenv"
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH=${PYENV_ROOT}/bin:$PATH
-    eval "$(pyenv init -)"
-fi
-
-# To use Homebrew's directories rather than ~/.pyenv add to your profile:
-#export PYENV_ROOT=/usr/local/opt/pyenv
-
 # export PKG_CONFIG_PATH=$PKG_COFIG_PATH:$HOME/opencv/lib/pkgconfig
 # exporrt LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/opencv/lib
 #
@@ -88,13 +77,3 @@ alias g++="g++ -std=c++11"
 
 ##vi
 alias vi="vim -u NONE --noplugin"
-
-## Virtualbox
-alias runlistVM="VBoxManage list runningvms"
-# quartus web
-alias startVM_Cent7="VBoxManage startvm "Cent7" --type headless"
-alias stopVM_Cent7="VBoxManage controlvm Cent7 poweroff"
-
-# design compiler virtuso Encounter vcs
-alias startVM_CUBE="VBoxManage startvm "CentCube6.6" --type headless"
-alias stopVM_CUBE="VBoxManage controlvm CentCube6.6 poweroff"
