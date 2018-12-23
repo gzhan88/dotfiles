@@ -89,12 +89,5 @@ alias g++="g++ -std=c++11"
 ##vi
 alias vi="vim -u NONE --noplugin"
 
-## Virtualbox
-alias runlistVM="VBoxManage list runningvms"
-# quartus web
-alias startVM_Cent7="VBoxManage startvm "Cent7" --type headless"
-alias stopVM_Cent7="VBoxManage controlvm Cent7 poweroff"
-
-# design compiler virtuso Encounter vcs
-alias startVM_CUBE="VBoxManage startvm "CentCube6.6" --type headless"
-alias stopVM_CUBE="VBoxManage controlvm CentCube6.6 poweroff"
+#for wsl
+umask 022
